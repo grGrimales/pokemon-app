@@ -1,0 +1,32 @@
+.containerSearch {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    .containerSearch__input {
+        display: flex;
+        width: 100%;
+        background-image: url("../../images/searchicon.png");
+        background-repeat: no-repeat;
+        background-position: 4px center;
+        background-size: 30px;
+        padding-left: 35px;
+        height: 30px;
+        border-radius: 2rem;
+        border: 1px solid $secundary;
+        margin-left: 1rem;
+        content: "";
+
+        &:focus {
+            border: 2px solid $secundary;
+
+        }
+    }
+
+    label {
+        color: $secundary;
+
+    }
+}
