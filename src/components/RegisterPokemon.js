@@ -3,6 +3,7 @@ import { useForm } from "../hooks/useForm";
 import { useState } from "react";
 
 import register from "../images/register.png";
+import Swal from "sweetalert2";
 
 export const RegisterPokemon = () => {
   const [listPokemon, setListPokemon] = useState([]);
@@ -49,6 +50,15 @@ export const RegisterPokemon = () => {
       setListPokemon([...listPokemon, pokemonToAdd]);
       localStorage.setItem("listPokemon", JSON.stringify(listPokemon));
       reset();
+      Swal.fire({
+        icon: "success",
+        title: "Ok!!",
+        color: "#ffe600",
+        background: "#2196f3",
+        text: `We correctly catch your pokemon ${name} `,
+        showConfirmButton: false,
+        timer: 1800,
+      });
     }
   };
 

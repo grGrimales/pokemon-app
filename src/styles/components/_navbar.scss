@@ -46,7 +46,7 @@
 
 
   @include medium {
-    width: 23rem;
+    width: 19.5rem;
 
   }
 
@@ -88,6 +88,11 @@
   &:hover {
     background-color: $secundary;
     border-radius: 0.4rem;
+  }
+
+  @include medium {
+    font-size: 1.3rem;
+    font-weight: bold;
   }
 }
 
