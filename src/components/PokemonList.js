@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 export const PokemonList = () => {
-  const { name } = useParams();
-
   const [pokemonData, setPokemonData] = useState([]);
 
   const getPokemon = async () => {
