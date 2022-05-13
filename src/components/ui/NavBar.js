@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { NavLink } from "react-router-dom";
+import pokemonTitle from "../../images/pokemon-title.png";
 // import logo from "../../images/Copia de logo-tiempo-libro.png";
 
 export const NavBar = () => {
@@ -23,7 +23,11 @@ export const NavBar = () => {
     <>
       <header className="header">
         <NavLink to="/" className="header__link">
-          POKEMON - APP
+          <img
+            className="header__logo"
+            src={pokemonTitle}
+            alt="Pokemon - app"
+          />
         </NavLink>
 
         <nav className="header__navegation">
@@ -42,12 +46,27 @@ export const NavBar = () => {
               </NavLink>
             </li>
 
-            <li className="nav__item" onClick={handleClickDropdown}>
-              {/*  */}
-              Pokedex
+            <li className="nav__item" onClick={handleClick}>
+              <NavLink
+                to="/pokedex"
+                className={({ isActive }) =>
+                  `nav__links ${isActive ? "nav__links--active" : "nav__links"}`
+                }
+              >
+                Pokedex
+              </NavLink>
             </li>
 
-            <li className="nav__item"></li>
+            <li className="nav__item" onClick={handleClick}>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  `nav__links ${isActive ? "nav__links--active" : "nav__links"}`
+                }
+              >
+                Agregar Pokemon
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

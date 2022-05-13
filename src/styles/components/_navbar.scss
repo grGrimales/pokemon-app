@@ -23,9 +23,9 @@
     color: white;
     background: none;
     border: none;
-    font-size: 30px;
-    padding: 0 20px;
-    line-height: 60px;
+    font-size: 1.87rem;
+    padding: 0 1.25rem;
+    line-height: 3.75;
     cursor: pointer;
 
     @include medium {
@@ -33,22 +33,20 @@
     }
   }
 
-  .header__link {
-    color: $complemetary;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-  }
+
 }
 
 .header__link {
   align-self: center;
+  padding: 1rem;
 }
 
 .header__logo {
+  width: 18rem;
+
 
   @include medium {
-    width: 80%;
+    width: 23rem;
 
   }
 
@@ -57,7 +55,6 @@
 .nav {
   display: grid;
   grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
   list-style: none;
   text-align: center;
   justify-content: end;
@@ -84,21 +81,21 @@
 }
 
 .nav__links {
-  color: $white;
+  color: $colorLetra;
   text-decoration: none;
   padding: 0.5rem;
 
   &:hover {
     background-color: $secundary;
     border-radius: 0.4rem;
-    color: $complemetary;
   }
 }
 
 .nav__links--active {
   background-color: $secundary;
   border-radius: 0.4rem;
-  color: $complemetary;
+  color: $colorLetra;
+
 }
 
 .activeUl {

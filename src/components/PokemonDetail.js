@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Wait } from "./ui/Wait";
 
 export const PokemonDetail = () => {
   const { name } = useParams();
@@ -32,7 +33,7 @@ export const PokemonDetail = () => {
   return (
     <>
       {!pokemonDetail ? (
-        <h1>Espere</h1>
+        <Wait />
       ) : (
         <div>
           name: {pokemonDetail?.name}

@@ -26,7 +26,10 @@
     }
 
     label {
-        color: $secundary;
+        font-size: 1.3rem;
+        color: $colorLetra;
+        -webkit-text-stroke: .045rem $secundary;
+
 
     }
 }
