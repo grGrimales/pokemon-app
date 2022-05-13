@@ -1,33 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Wait } from "./ui/Wait";
+import { getPokemonByName } from "../services";
 
 export const PokemonDetail = () => {
   const { name } = useParams();
   const [pokemonDetail, setPokemonDetail] = useState(null);
 
-  const getPokemonByName = async () => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-
-    const body = await fetch(url);
-    const resp = await body.json();
-    const { abilities, sprites, base_experience, height, weight } = resp;
-
-    setPokemonDetail({
-      name,
-      abilities,
-      img: sprites.other.home.front_default,
-      description: {
-        base_experience,
-        height,
-        weight,
-      },
-    });
-  };
-
   useEffect(() => {
-    getPokemonByName();
-    console.log(pokemonDetail);
+    getPokemonByName(setPokemonDetail, name);
   }, []);
 
   return (

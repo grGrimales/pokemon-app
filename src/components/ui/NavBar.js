@@ -13,12 +13,6 @@ export const NavBar = () => {
 
   const handleClickDropdown = () => setDropdown(!dropdown);
 
-  // useEffect(() => {
-  //   getCategories().then((result) => {
-  //     setCategories(result);
-  //   });
-  // }, []);
-
   return (
     <>
       <header className="header">
@@ -42,7 +36,7 @@ export const NavBar = () => {
                   `nav__links ${isActive ? "nav__links--active" : "nav__links"}`
                 }
               >
-                Inicio
+                Home
               </NavLink>
             </li>
 

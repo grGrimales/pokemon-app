@@ -2,28 +2,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { Wait } from "../components/ui/Wait";
+import { getPokemon } from "../services";
 
 export const PokemonList = () => {
   const [pokemonData, setPokemonData] = useState([]);
 
-  const getPokemon = async () => {
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0";
-    const body = await fetch(url);
-    const resp = await body.json();
-
-    const { results } = resp;
-
-    for await (let pokemon of results) {
-      const body = await fetch(pokemon.url);
-      const resp = await body.json();
-      pokemon.img = resp.sprites.other.home.front_default;
-    }
-
-    setPokemonData(results);
-  };
-
   useEffect(() => {
-    getPokemon();
+    getPokemon(setPokemonData);
   }, []);
 
   return (
@@ -51,7 +36,7 @@ export const PokemonList = () => {
               </h2>
 
               <Link to={`/item/${pokemon.name}`}>
-                <button className="card__btn">Ver detalles</button>
+                <button className="card__btn">Show Details</button>
               </Link>
             </div>
           ))}

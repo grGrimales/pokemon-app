@@ -13,14 +13,14 @@ export const Home = () => {
       <main>
         <form>
           <div className="containerSearch">
-            <label htmlFor="search">Buscar</label>
+            <label htmlFor="search">Search</label>
             <input
               className="containerSearch__input"
               type="text"
               name="search"
               id="search"
               value={search}
-              placeholder="Buscar"
+              placeholder="Search"
               onChange={handleContactInputChange}
             />
           </div>
