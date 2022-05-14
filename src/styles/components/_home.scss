@@ -23,6 +23,10 @@
             border: 2px solid $secundary;
 
         }
+
+        @include medium {
+            width: 43%;
+        }
     }
 
     label {
@@ -32,4 +36,17 @@
 
 
     }
+}
+
+.titleList {
+
+    font-size: 2.3rem;
+    padding: 1rem;
+    color: $colorLetra;
+    -webkit-text-stroke: .065rem $secundary;
+
+    span {
+        text-transform: uppercase;
+    }
+
 }

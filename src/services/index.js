@@ -17,8 +17,16 @@ export const getPokemonByName = async (setPokemonDetail, name) => {
   });
 };
 
-export const getPokemon = async (setPokemonData) => {
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0";
+export const getPokemons = async (
+  setPokemonData,
+  setIsLoading,
+  limit = 9,
+  offset = 0
+) => {
+  setIsLoading(true);
+
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+
   const body = await fetch(url);
   const resp = await body.json();
 
@@ -31,4 +39,27 @@ export const getPokemon = async (setPokemonData) => {
   }
 
   setPokemonData(results);
+  setIsLoading(false);
+};
+
+export const getPokemon = async (search = "", setPokemonData, setIsLoading) => {
+  setIsLoading(true);
+
+  const url = `https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`;
+  await fetch(url)
+    .then(async (body) => {
+      const resp = await body.json();
+      const pokemon = {
+        name: search.toLowerCase(),
+        img: resp.sprites.other.home.front_default,
+      };
+
+      setPokemonData([pokemon]);
+      setIsLoading(false);
+    })
+    .catch((err) => {
+      console.log(err);
+      setPokemonData([]);
+      setIsLoading(false);
+    });
 };

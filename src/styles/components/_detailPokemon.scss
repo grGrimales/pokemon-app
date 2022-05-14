@@ -1,12 +1,18 @@
+.containerDetail {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
 .titleDetail {
     padding: 1rem;
     -webkit-text-stroke: .065rem $secundary;
     color: $colorLetra;
-    font-size: 3rem;
+    font-size: 5rem;
+    text-align: center;
+    text-transform: capitalize;
 
-    span {
-        text-transform: capitalize;
-    }
+
 
 }
 
@@ -45,6 +51,16 @@
     }
 
 
+
+}
+
+.containerDetail__img {
+    width: 20rem;
+
+    @include medium {
+        width: 25rem;
+    }
+
 }
 
 .containerImg {
@@ -67,7 +83,8 @@
 .cardDetail__title {
     padding: 0.3rem;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.8rem;
+
 
     span {
         font-weight: 400;
@@ -79,6 +96,9 @@
 
 
 .cardDetail__description {
+    font-size: 1.8rem;
+
+
     padding: 0.5rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -92,6 +112,8 @@
     li {
         padding: .3rem;
         color: $secundary;
+        font-size: 1.8rem;
+
     }
 }
 

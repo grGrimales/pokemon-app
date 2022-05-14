@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { Wait } from "./ui/Wait";
 import { getPokemonByName } from "../services";
 
+import who from "../images/who.png";
+
 export const PokemonDetail = () => {
   const { name } = useParams();
+
   const [pokemonDetail, setPokemonDetail] = useState(null);
 
   useEffect(() => {
@@ -18,9 +21,14 @@ export const PokemonDetail = () => {
       ) : (
         <>
           <div className="cardDetail__container animate__animated animate__fadeIn">
-            <h1 className="titleDetail">
-              POKEMON: <span> {name} </span>{" "}
-            </h1>
+            <div className="containerDetail">
+              <img
+                className="containerDetail__img"
+                src={who}
+                alt="Quien  es ese Pokemon?"
+              />
+              <h1 className="titleDetail">{name}</h1>
+            </div>
             <div className="cardDetail">
               <div className="containerImg">
                 <img
@@ -39,19 +47,20 @@ export const PokemonDetail = () => {
                 <p className="cardDetail__description">Abilities:</p>
                 <ul className="listDescription">
                   {pokemonDetail.abilities.map((abiliti) => (
-                    <li key={abiliti.ability.name}>{abiliti.ability.name}</li>
+                    <li key={abiliti.ability.name}>*{abiliti.ability.name}</li>
                   ))}
                 </ul>
                 <p className="cardDetail__description">Description:</p>
 
                 <ul className="listDescription">
                   <li>
-                    Base experience: {pokemonDetail.description.base_experience}
+                    *Base experience:{" "}
+                    {pokemonDetail.description.base_experience}
                   </li>
 
-                  <li>height: {pokemonDetail.description.height}</li>
+                  <li>*Height: {pokemonDetail.description.height}</li>
 
-                  <li>weight: {pokemonDetail.description.weight}</li>
+                  <li>*Weight: {pokemonDetail.description.weight}</li>
                 </ul>
               </div>
             </div>

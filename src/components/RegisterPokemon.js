@@ -6,7 +6,10 @@ import register from "../images/register.png";
 import Swal from "sweetalert2";
 
 export const RegisterPokemon = () => {
-  const [listPokemon, setListPokemon] = useState([]);
+  const [listPokemon, setListPokemon] = useState(
+    JSON.parse(localStorage.getItem("listPokemon")) || []
+  );
+
   const [error, setError] = useState();
   const [message, setMessage] = useState();
 
@@ -44,10 +47,11 @@ export const RegisterPokemon = () => {
         removeError();
       }, 3000);
     } else {
-      const labels = abilities.split("-");
+      const labels = abilities.split(" ");
       const description = [{ height }, { weight }, { baseExperience }];
       const pokemonToAdd = { name, description, labels, image };
-      setListPokemon([...listPokemon, pokemonToAdd]);
+      listPokemon.push(pokemonToAdd);
+      setListPokemon(listPokemon);
       localStorage.setItem("listPokemon", JSON.stringify(listPokemon));
       reset();
       Swal.fire({

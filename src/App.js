@@ -3,7 +3,7 @@ import { AppRouter } from "./router/AppRouter";
 function App() {
   return (
     <AppRouter>
-      <div className="App">pokemon</div>;
+      <div className="App"></div>;
     </AppRouter>
   );
 }

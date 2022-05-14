@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { useForm } from "../hooks/useForm";
+import { getPokemonByName } from "../services";
 import { PokemonList } from "./PokemonList";
 
 export const Home = () => {
@@ -26,7 +28,7 @@ export const Home = () => {
           </div>
         </form>
 
-        <PokemonList />
+        <PokemonList search={search} />
       </main>
     </>
   );
