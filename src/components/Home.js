@@ -22,7 +22,7 @@ export const Home = () => {
               name="search"
               id="search"
               value={search}
-              placeholder="Search"
+              placeholder="Search for your pokemon by name"
               onChange={handleContactInputChange}
             />
           </div>
